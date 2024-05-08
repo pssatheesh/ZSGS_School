@@ -1,6 +1,11 @@
 package Leetcode;
 
 public class Countandsay38 {
+    //1
+    //11
+    //21
+    //1211
+    //111221
     static String countandsay(int n){
         String result="1";
         for(int i=1;i<n;i++){
@@ -42,7 +47,7 @@ public class Countandsay38 {
     }
     public static void main(String[] args) {
         int n=5;
-       // System.out.println(countandsay(n));
+       System.out.println(countandsay(n));
         String str="1";
         if(n==1){
             System.out.println(str);
