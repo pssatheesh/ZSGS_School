@@ -28,7 +28,7 @@ public class StringSequence {
     public static void main(String[] args) {
         String s="abc";
         findSubsequence(s, " ");
-        //System.out.println(al);
+        System.out.println(al);
         Subsequence(s, "");
     }
 }

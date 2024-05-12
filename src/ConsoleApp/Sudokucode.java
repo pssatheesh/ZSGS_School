@@ -7,6 +7,7 @@ public class Sudokucode {
     public Sudokucode(int boxSize) {
         this.boxSize=boxSize;
         this.gridSize=boxSize*boxSize;
+
     }
 
     public void display(int [][]board) {
@@ -62,7 +63,7 @@ public class Sudokucode {
         for(int row=0;row<gridSize;row++){
             for(int col=0;col<gridSize;col++){
                 if(board[row][col]==0){
-                    for(int num=1;num<=9;num++){
+                    for(int num=1;num<=gridSize;num++){
                         if(isAllowed(board,row,col,num)){
                             board[row][col]=num;
                             if(solved(board)){
