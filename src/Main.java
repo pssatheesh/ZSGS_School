@@ -39,6 +39,8 @@ public class Main {
     public static void main(String[] args) {
         int []nums={1,7,3,6,5,6};
         System.out.println(closeStrings("cabbba", "aabbss"));
+        System.out.println("♥♥♥♥");
+        ArrayList<Integer> al=new ArrayList<>();
 
     }
 

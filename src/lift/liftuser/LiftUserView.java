@@ -1,4 +1,4 @@
-package lift.LiftUser;
+package lift.liftuser;
 
 import lift.Lift;
 
@@ -6,19 +6,19 @@ import java.util.*;
 
 
 public class LiftUserView {
-    private static LiftUserModel liftUserModel;
+    private static LiftUserViewModel liftUserViewModel;
     private static Scanner scanner;
     private static List<Lift> lifts;
 
     public LiftUserView() {
-        liftUserModel = new LiftUserModel(this);
+        liftUserViewModel = new LiftUserViewModel(this);
     }
 
     public void init() {
         scanner = new Scanner(System.in);
         System.out.println("Enter the number of Lifts: ");
         int numLift = scanner.nextInt();
-        liftUserModel.createLifts(numLift);
+        liftUserViewModel.createLifts(numLift);
         while (true) {
             System.out.println("1.Display all Lifts \n2.Get Lift\n3.Set Floor Restriction for a lift\n4.Get Lift for given Capacity\n5.Set Maintenance to a lift\n6 Remove Maintenance to a lift\n7.Exit");
             System.out.println("Enter the choice:");
@@ -54,27 +54,27 @@ public class LiftUserView {
 
     }
 
-    private static void displayLift() {
+    private void displayLift() {
         lifts = new ArrayList<>();
-        lifts = liftUserModel.display();
+        lifts = liftUserViewModel.display();
         for (Lift l : lifts) {
             System.out.println(l);
         }
     }
 
-    private static void accessLift() {
+    private void accessLift() {
         scanner = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the Current floor");
         int currentFloor = scanner.nextInt();
         System.out.println("Destination floor");
         int destination = scanner.nextInt();
-        Lift lift = liftUserModel.getLift(currentFloor, destination);
+        Lift lift = liftUserViewModel.getLift(currentFloor, destination);
         System.out.println(lift);
         lift.setCapacity(0);
     }
 
-    private static void setRestriction() {
+    private void setRestriction() {
         Scanner scanner = new Scanner(System.in);
         Map<Integer, Set<Integer>> restrictedFloors = new HashMap<>();
         System.out.println("Enter the Restricted Lift Number:");
@@ -83,15 +83,15 @@ public class LiftUserView {
         int n = scanner.nextInt();
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter the "+(i+1)+"th floor number:");
+            System.out.println("Enter the " + (i + 1) + "th floor number:");
             int temp = scanner.nextInt();
             set.add(temp);
         }
         restrictedFloors.put(liftnumber, set);
-        liftUserModel.liftRestriction(liftnumber, restrictedFloors);
+        liftUserViewModel.liftRestriction(liftnumber, restrictedFloors);
     }
 
-    private static void setLiftCapacity() {
+    private void setLiftCapacity() {
         scanner = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the Current floor");
@@ -100,24 +100,24 @@ public class LiftUserView {
         int destination = scanner.nextInt();
         System.out.println("Enter the Capacity");
         int capacity = scanner.nextInt();
-        List<Lift> result = liftUserModel.getLift(currentFloor, destination, capacity);
+        List<Lift> result = liftUserViewModel.getLift(currentFloor, destination, capacity);
         System.out.println(result);
         result.forEach(lift -> lift.setCapacity(0));
     }
 
-    private static void setLiftMaintenance(){
+    private void setLiftMaintenance() {
         scanner = new Scanner(System.in);
         System.out.println("Enter the Lift number to set Maintenance");
-        int number=scanner.nextInt();
-        liftUserModel.setLiftMaintenance("L"+number);
+        int number = scanner.nextInt();
+        liftUserViewModel.setLiftMaintenance("L" + number);
 
     }
 
-    private static void removeLiftMaintenance() {
+    private void removeLiftMaintenance() {
         scanner = new Scanner(System.in);
         System.out.println("Enter the Lift number to remove Maintenance");
-        int number=scanner.nextInt();
-        liftUserModel.removeLiftMaintenance("L"+number);
+        int number = scanner.nextInt();
+        liftUserViewModel.removeLiftMaintenance("L" + number);
 
     }
 }

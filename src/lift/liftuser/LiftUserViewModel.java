@@ -1,4 +1,4 @@
-package lift.LiftUser;
+package lift.liftuser;
 
 import lift.Lift;
 
@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class LiftUserModel {
+public class LiftUserViewModel {
     private LiftUserView liftUserView;
     private final List<Lift> lifts = new ArrayList<>();
 
-    public LiftUserModel(LiftUserView liftUserView) {
+    public LiftUserViewModel(LiftUserView liftUserView) {
         this.liftUserView = liftUserView;
     }
 

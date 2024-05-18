@@ -11,16 +11,16 @@ public class Lift {
     private final String liftNo;
     private Set<Integer> restrictedFloors;
 
-    public Lift(int liftNo,int floor) {
+    public Lift(int liftNo, int floor) {
         this.floor = floor;
-        this.liftNo = "L"+liftNo;
+        this.liftNo = "L" + liftNo;
         this.restrictedFloors = new HashSet<>();
     }
 
     // Constructor with restricted floors
     public Lift(int liftNo, int floor, Set<Integer> restrictedFloors) {
         this.floor = floor;
-        this.liftNo = "L"+liftNo;
+        this.liftNo = "L" + liftNo;
         this.restrictedFloors = restrictedFloors;
     }
 
@@ -44,7 +44,7 @@ public class Lift {
         return this.capacity;
     }
 
-    public String getLiftNo(){
+    public String getLiftNo() {
         return this.liftNo;
     }
 
@@ -59,8 +59,9 @@ public class Lift {
     public void setInMaintenance(boolean inMaintenance) {
         this.inMaintenance = inMaintenance;
     }
+
     @Override
     public String toString() {
-        return  this.liftNo + " - floor: " + this.floor+ " - capacity: " + this.capacity+ "Maintenance State: "+this.inMaintenance ;
+        return this.liftNo + " - floor: " + this.floor + " - capacity: " + this.capacity + "Maintenance State: " + this.inMaintenance;
     }
 }
