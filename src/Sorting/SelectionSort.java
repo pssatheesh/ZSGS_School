@@ -1,13 +1,15 @@
-package Practice;
+package Sorting;
+
 
 import java.util.Arrays;
 
 public class SelectionSort {
-    public static void selection(int []arr){
+    private static void Sort(int[] arr){
+        int count=0;
         for(int i=0;i<arr.length;i++){
             int minIndex=i;
             for(int j=i+1;j<arr.length;j++){
-                if(arr[i]<arr[minIndex]){
+                if(arr[j]<arr[minIndex]){
                     minIndex=j;
                 }
             }
@@ -15,12 +17,11 @@ public class SelectionSort {
             arr[i]=arr[minIndex];
             arr[minIndex]=temp;
         }
-        System.out.println(Arrays.toString(arr));
+
     }
-
     public static void main(String[] args) {
-        int []arr={8,2,6,4,10,1};
-        selection(arr);
-
+        int []arr={28,56,34,7,12,1};
+        Sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }

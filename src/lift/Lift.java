@@ -62,6 +62,6 @@ public class Lift {
 
     @Override
     public String toString() {
-        return this.liftNo + " - floor: " + this.floor + " - capacity: " + this.capacity + "Maintenance State: " + this.inMaintenance;
+        return this.liftNo + " - floor: " + this.floor + " - capacity: " + this.capacity + " Maintenance State: " + this.inMaintenance;
     }
 }

@@ -1,7 +1,8 @@
 package lift;
 
-import java.util.*;
+import lift.liftuser.LiftUserView;
 
+import java.util.*;
 
 public class LiftApplication {
     private Lift lift;
@@ -38,9 +39,9 @@ public class LiftApplication {
 
     public static void main(String[] args) {
 
-//        LiftUserView liftUserView = new LiftUserView();
-//        liftUserView.init();
-        LiftApplication.getInstance();
+        LiftUserView liftUserView = new LiftUserView();
+        liftUserView.init();
+       // LiftApplication.getInstance();
 
     }
 

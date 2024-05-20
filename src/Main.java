@@ -36,11 +36,35 @@ public class Main {
         }
         return true;
     }
+
+    public static double findMaxAverage(int[] nums, int k) {
+        double max=Integer.MIN_VALUE, avg=0;
+        double sum=0;
+        if(nums.length ==1){
+            return (double)nums[0];
+        }
+        for(int i=0;i<k;i++){
+            sum+=nums[i];
+        }
+        if(nums.length!=k){
+            for(int j=k;j<nums.length;j++){
+                sum+=nums[j]-nums[j-k];
+                avg=sum/k;
+                max=Math.max(max, avg);
+            }
+        }else{
+            avg=sum/k;
+            max=Math.max(max, avg);
+        }
+
+        return max;
+    }
     public static void main(String[] args) {
-        int []nums={1,7,3,6,5,6};
-        System.out.println(closeStrings("cabbba", "aabbss"));
-        System.out.println("♥♥♥♥");
-        ArrayList<Integer> al=new ArrayList<>();
+//        int []nums={1,7,3,6,5,6};
+//        System.out.println(closeStrings("cabbba", "aabbss"));
+//        System.out.println("♥♥♥♥");
+        int []arr={9,7,3,5,6,2,1,8,1,9};
+        System.out.println(findMaxAverage(arr, 6));
 
     }
 
