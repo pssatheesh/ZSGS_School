@@ -3,7 +3,7 @@ package Recursion;
 import java.util.ArrayList;
 
 public class ArraySubsequence {
-    public static void subsequence(int []arr, int index, ArrayList<Integer> result){
+    private static void subsequence(int []arr, int index, ArrayList<Integer> result){
         if(index== arr.length){
             if(result.size()>0){
                 System.out.println(result);
