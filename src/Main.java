@@ -63,8 +63,9 @@ public class Main {
 //        int []nums={1,7,3,6,5,6};
 //        System.out.println(closeStrings("cabbba", "aabbss"));
 //        System.out.println("♥♥♥♥");
-        int []arr={9,7,3,5,6,2,1,8,1,9};
-        System.out.println(findMaxAverage(arr, 6));
+//        int []arr={9,7,3,5,6,2,1,8,1,9};
+//        System.out.println(findMaxAverage(arr, 6));
+
 
     }
 
