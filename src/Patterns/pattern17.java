@@ -1,7 +1,7 @@
 package Patterns;
 
 public class pattern17 {
-    /*    Af
+    /*    A
     *    ABA
     *   ABCBA
     *  ABCDCBA

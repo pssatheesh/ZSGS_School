@@ -1,58 +1,110 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
 
-public class test {
-    public static String findSmallestSubstring(String word, String sentence) {
-        Map<Character, Integer> charCountMap = new HashMap<>();
-        int n = word.length();
-        int left = 0;
-        int minLength = Integer.MAX_VALUE;
-        String smallestSubstring = "";
+    public class test {
 
-        for (char c : word.toCharArray()) {
-            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        private Stack<Options> backStack = new Stack<>();
+
+        private Connection getConnection() {
+            // SQLite connection string
+            String url="jdbc:mysql://localhost:3306/demo";
+            String user="root";
+            String pass="satheesh";// Change this to your database path
+            Connection conn = null;
+            try {
+                conn = DriverManager.getConnection(url, user, pass);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            return conn;
         }
 
-        int i = 0;
-        while (i < sentence.length()) {
-            char currentChar = sentence.charAt(i);
+        public static void main(String[] args) {
+            test ivrs = new test();
+            ivrs.start();
+        }
 
-            if (charCountMap.containsKey(currentChar)) {
-                if (charCountMap.get(currentChar) > 0) {
-                    n--;
-                }
-                charCountMap.put(currentChar, charCountMap.get(currentChar) - 1);
-            }
-
-            while (n == 0) {
-                int currentLength = i - left + 1;
-                if (currentLength < minLength) {
-                    minLength = currentLength;
-                    smallestSubstring = sentence.substring(left, i + 1);
-                }
-
-                char leftChar = sentence.charAt(left);
-                if (charCountMap.containsKey(leftChar)) {
-                    charCountMap.put(leftChar, charCountMap.get(leftChar) + 1);
-                    if (charCountMap.get(leftChar) > 0) {
-                        n++;
+        private void start() {
+            int choice;
+            backStack.push(new Options(0, 0));
+            print(0, 0);
+            Scanner input = new Scanner(System.in);
+            do {
+                System.out.println();
+                System.out.print("Enter your option: ");
+                choice = input.nextInt();
+                if (choice == 9) {
+                    backStack.pop();
+                    if (backStack.isEmpty()) {
+                        break;
                     }
+                } else {
+                    backStack.push(new Options(backStack.peek().level + 1, choice));
                 }
-
-                left++;
-            }
-
-            i++;
+                Options top = backStack.peek();
+                print(top.level, top.choice);
+            } while (choice != 0);
+            System.out.println("Thank you for visiting our Bot...");
         }
 
-        return smallestSubstring;
-    }
+        private void print(int level, int choice) {
+            for (String choiceString : getOptions(level, choice)) {
+                System.out.println(choiceString);
+            }
+        }
 
-    public static void main(String[] args) {
-        String word = "ABC";
-        String sentence = "ADOBECODEBANC";
+        private ArrayList<String> getOptions(int level, int choice) {
+            ArrayList<String> choiceList = new ArrayList<>();
+            String sql = "SELECT option_text FROM menu_options WHERE level = ? AND choice = ?";
 
-        String result = findSmallestSubstring(word, sentence);
-        System.out.println("Smallest Substring: " + result);
+            try (Connection conn = this.getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+                pstmt.setInt(1, level);
+                pstmt.setInt(2, choice);
+                ResultSet rs = pstmt.executeQuery();
+
+                while (rs.next()) {
+                    choiceList.add(rs.getString("option_text"));
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+
+            if (choiceList.isEmpty() && level == 3) {
+                choiceList.add("Your Option set Successfully");
+                choiceList.add("9-Back");
+                choiceList.add("0-Exit");
+            }
+
+            return choiceList;
+        }
+
+        public static class Options {
+            private int level;
+            private int choice;
+
+            Options(int level, int choice) {
+                this.level = level;
+                this.choice = choice;
+            }
+
+            public int getLevel() {
+                return level;
+            }
+
+            public void setLevel(int level) {
+                this.level = level;
+            }
+
+            public int getChoice() {
+                return choice;
+            }
+
+            public void setChoice(int choice) {
+                this.choice = choice;
+            }
+        }
     }
-}
