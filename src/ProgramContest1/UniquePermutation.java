@@ -28,6 +28,7 @@ public class UniquePermutation {
         }else{
             for(int i=low;i<=high;i++){
                 s=Swap(s, low, i);
+
                 permute(s, low+1, high);
             }
         }

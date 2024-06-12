@@ -1,26 +1,5 @@
-import java.io.*;
-import java.util.*;
-
 
 public class Main {
-    public static int pivotIndex(int[] nums) {
-        int leftsum=0, rightsum=0;
-        int i=0;
-        while(i<nums.length-1){
-            int pivot=i;
-            for(int j=0;j<pivot;j++){
-                leftsum=+nums[j];
-            }
-            for(int j=pivot+1;j<nums.length-1;j++){
-                rightsum=+nums[j];
-            }
-            if(leftsum==rightsum){
-                return pivot;
-            }
-            i++;
-        }
-        return -1;
-    }
     static void diagonalmatrix(int [][]arr){
         int len=arr.length, i=0, row, col;
         for(i=0;i<2*len;i++){
@@ -113,13 +92,16 @@ public class Main {
         }
     }
 
+
     public static void main(String[] args) {
-        int [][]arr={ {1,2,3}, {4,5,6}, {7,8,9}};
-        diagonalmatrix(arr);
-        int n=4;
-        pattern(n);
-        int t=5;
-        spiralMatrix(t);
+//        String s="this is 55my program";
+//        System.out.println(s.matches("[0-9][a-z]"));
+        spiralMatrix(5);
+        pattern(5);
+
+
 
     }
+
+
 }

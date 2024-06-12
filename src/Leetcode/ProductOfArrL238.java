@@ -1,5 +1,6 @@
 package Leetcode;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class ProductOfArrL238 {
@@ -14,6 +15,7 @@ public class ProductOfArrL238 {
             res[i]*=postfix;
             postfix*=nums[i];
         }
+        System.out.println(Arrays.toString(res));
         return res;
     }
     public static void main(String[] args) {

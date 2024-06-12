@@ -3,20 +3,6 @@ package Practice;
 public class SinglyLinkedList {
     Node head;
 
-    public void reverse() {
-        Node prev=null;
-        Node current=head;
-        Node next=head.next;
-        while(current!=null){
-            next=current.next;
-            current.next=prev;
-            prev=current;
-            current=next;
-        }
-        head=prev;
-
-    }
-
 
     class Node{
         int data;
@@ -57,5 +43,19 @@ public class SinglyLinkedList {
         }
         newNode.next=temp.next;
         temp.next=newNode;
+    }
+
+    public void reverse() {
+        Node prev=null;
+        Node current=head;
+        Node next=head.next;
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
+
     }
 }
