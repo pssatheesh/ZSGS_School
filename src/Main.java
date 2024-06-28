@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     static void diagonalmatrix(int [][]arr){
@@ -92,14 +95,34 @@ public class Main {
         }
     }
 
+    public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        List<List<Integer>> ans=new ArrayList<>();
+        List<Integer> res1=new ArrayList<>();
+        List<Integer> res2=new ArrayList<>();
+        for(int i=0;i<nums1.length;i++){
+            res1.add(nums1[i]);
+            res2.add(nums2[i]);
+        }
+        System.out.println(res1);
+        System.out.println(res2);
+        ans.add(res1);
+        ans.add(res2);
+        return ans;
+    }
 
     public static void main(String[] args) {
 //        String s="this is 55my program";
 //        System.out.println(s.matches("[0-9][a-z]"));
+        int []arr[]={ {1,2,3},
+                {4,5,6},
+                {7,8,9}
+        };
+        diagonalmatrix(arr);
         spiralMatrix(5);
         pattern(5);
-
-
+        int []arr1={1,2,3,3};
+        int []arr2={1,1,2,2};
+        System.out.println(findDifference(arr1, arr2));
 
     }
 

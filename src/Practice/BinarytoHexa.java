@@ -31,7 +31,6 @@ public class BinarytoHexa {
         }
         if(length>0){
             temp=str.substring(0, length);
-
             s.append(value(temp));
         }
         System.out.println(s.reverse());
@@ -45,7 +44,7 @@ public class BinarytoHexa {
     }
     public static void main(String[] args) {
         convertOctal("110111");
-        convertHexa("110111");
+        convertHexa("0001101011000101");
 
     }
 }
