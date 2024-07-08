@@ -2,8 +2,6 @@ package Practice;
 
 public class SinglyLinkedList {
     Node head;
-
-
     class Node{
         int data;
         Node next;
