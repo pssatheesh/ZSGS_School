@@ -1,16 +1,23 @@
-import java.util.Arrays;
 
 public class test {
-    int a;float fl; double d;
-    public static void main(String[] args) {
 
-        int []a= {1,2,3};
-//        int []clonearr=a.clone();
-//        System.out.println(a[0]==clonearr[0]);
-//        a[1]=21;
-//        System.out.println(a[1]==clonearr[1]);
-//        System.out.println(a.length);
-        System.out.println(Arrays.binarySearch(a,2));
+    public static void main(String[] args) {
+        int n=4;
+        for(int i=0;i<n;i++){
+            for(int j=n-1;j>=0;j--){
+                System.out.print(" ");
+            }
+
+            for(int j=i+1;j<(2*n)-1;j++){
+                System.out.print("*");
+            }
+
+            for(int j=n-1;j>=0;j--){
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
 
     }
 

@@ -3,7 +3,6 @@ package Leetcode;
 public class IsSubsequenceL392 {
     public static boolean isSubsequence(String s, String t) {
         int i=0, j=0;
-        int count=0;
         if(s.isEmpty()) return true;
         while(i<t.length() && j<s.length()){
             char ch=s.charAt(j);

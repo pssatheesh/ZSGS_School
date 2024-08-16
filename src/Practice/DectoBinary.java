@@ -3,12 +3,10 @@ package Practice;
 public class DectoBinary {
     public static String convertBinary(int n){
         StringBuilder res=new StringBuilder();
-        int rem=0;
         while(n>0){
-            res.append(n%2);            //n%8 to Octal
-            n/=2;                   //n/8
+            res.append(n%2);           //n%8 to Octal
+            n/=2;                      //n/8
         }
-
         return res.reverse().toString();
     }
     public static String convertHexa(int n){
@@ -23,7 +21,6 @@ public class DectoBinary {
                 res.append(rem);
             n/=16;
         }
-
         return res.reverse().toString();
     }
 
@@ -45,7 +42,6 @@ public class DectoBinary {
                 num+=arr[i];
             }
         }
-
         return num;
     }
 
@@ -58,9 +54,9 @@ public class DectoBinary {
         return decimal;
     }
     public static void main(String[] args) {
-        System.out.println(convertBinary(8));
+//        System.out.println(convertBinary(8));
         System.out.println(convertDecimal("1000"));
-        System.out.println(convertDecimal("1000"));
-        System.out.println(convertHexa(19132));
+//        System.out.println(convertDecimal("1000"));
+//        System.out.println(convertHexa(19132));
     }
 }

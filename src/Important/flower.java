@@ -20,7 +20,6 @@ public class flower {
             if(check)
                 commonlength++;
         }
-        System.out.println(commonlength);
         for(int i=0;i<commonlength;i++){
             System.out.print(arr[0].charAt(i));
         }

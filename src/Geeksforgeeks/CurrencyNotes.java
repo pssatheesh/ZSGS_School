@@ -16,7 +16,7 @@ public class CurrencyNotes {
     }
 
     public static void main(String[] args) {
-        int amount=868;
+        int amount=4868;
         countCurrency(amount);
     }
 }
